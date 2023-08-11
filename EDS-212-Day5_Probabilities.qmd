@@ -1,27 +1,38 @@
 ---
 title: "EDS-212-Day5_Probabilities"
 author: "Oksana Protsukha"
-format: html
+format: 
+  html: 
+    code-fold: true
+    code-summary: "View code"
 editor: visual
+execute:
+  echo: true
+  warning: false
 ---
 
-## Quarto
-
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
-
-## Running Code
-
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
-
 ```{r}
-1 + 1
+library(tidyverse)
 ```
 
-You can add options to executable code like this
+## Explore starwars dataset
 
 ```{r}
-#| echo: false
-2 * 2
+head(starwars)
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+```{r}
+dim(starwars)
+
+```
+
+```{r}
+ggplot(data = starwars, aes(x = height)) +
+  geom_histogram()
+```
+
+```{r}
+# --- dependendent variable should be on the y axis (e.g. y depends on x - mass depends on height)
+ggplot(data = starwars, aes(x = height, y = mass, color = sex)) +
+  geom_point()
+```
