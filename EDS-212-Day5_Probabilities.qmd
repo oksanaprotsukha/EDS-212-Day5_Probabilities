@@ -72,3 +72,7 @@ sd_height
 sd_height <- sd(starwars$height, na.rm = TRUE)
 sd_height
 ```
+
+## In-line reporting using code outputs
+
+The mean height of star wars characters is `r mean_height` cm with a standard deviation of `r sd_height`
