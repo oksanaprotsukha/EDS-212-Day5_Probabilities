@@ -23,7 +23,6 @@ head(starwars)
 
 ```{r}
 dim(starwars)
-
 ```
 
 ```{r}
@@ -35,4 +34,41 @@ ggplot(data = starwars, aes(x = height)) +
 # --- dependendent variable should be on the y axis (e.g. y depends on x - mass depends on height)
 ggplot(data = starwars, aes(x = height, y = mass, color = sex)) +
   geom_point()
+```
+
+## Summary statistics
+
+```{r}
+# --- view all vectors for a given coloumn: dataset$coloumn
+starwars$height
+```
+
+-   Use mean() function to find means
+
+-   Use sd() functions to find standard deviations
+
+#### Find and store the mean of character heights
+
+```{r}
+# --- if there a fields with missing values, by default R returns NA to indicate that it was not able to calculate mean for the given dataset
+
+mean_height <- mean(starwars$height)
+mean_height
+
+# --- exclude NA values from the dataset to calculate mean
+mean_height <- mean(starwars$height, na.rm = TRUE)
+mean_height
+```
+
+#### Find and store the standard deviation of character heights
+
+```{r}
+# --- if there a fields with missing values, by default R returns NA to indicate that it was not able to calculate standard deviation for the given dataset
+
+sd_height <- sd(starwars$height)
+sd_height
+
+# --- exclude NA values from the dataset to calculate standard deviation
+sd_height <- sd(starwars$height, na.rm = TRUE)
+sd_height
 ```
